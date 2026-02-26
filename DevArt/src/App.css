@@ -1,0 +1,23 @@
+.button-container {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid lightgray;
+    padding-bottom: 5px;
+}
+
+.button {
+    padding: 6xp 12px;
+    background-color: lightgray;
+    border: 1px solid lightgray;
+    border-radius: 2px;
+}
+
+
+.button-selected {
+    padding: 6px 12px;
+    background-color: rgb( 58, 147, 230);
+    border: 1px solid rgb( 58, 147, 230);
+    color: white;
+    border-radius: 2px;
+}

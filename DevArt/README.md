@@ -1,73 +1,95 @@
-# React + TypeScript + Vite
+## DevArt – Petit explorateur HTML / CSS / JavaScript
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Ce dépôt contient une petite application front construite avec **React**, **TypeScript** et **Vite**.  
+Elle affiche une série d’onglets (HTML, CSS, JavaScript) et, pour chaque onglet, un texte explicatif très simple en français.
 
-Currently, two official plugins are available:
+Je l’utilise comme un **terrain de jeu** pour expérimenter :
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **les bases de React** (état local, composants, props),
+- **TypeScript** (typage simple des données passées en props),
+- **Vite** pour un environnement de développement rapide.
 
-## React Compiler
+### Fonctionnalités
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+- **Navigation par onglets**: un composant `Tabs` reçoit une liste d’éléments typés (`id`, `label`, `content`) et affiche :
+  - une barre de boutons pour choisir un onglet,
+  - le contenu correspondant à l’onglet sélectionné.
+- **Contenu en français**: pour chaque onglet (HTML, CSS, JavaScript), un petit texte décrit brièvement la technologie.
 
-## Expanding the ESLint configuration
+### Stack technique
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **React** + **TypeScript**
+- **Vite** (outil de build / dev server)
+- **CSS** simple pour le style des boutons et du contenu
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Démarrage du projet
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Prérequis
+
+- **Node.js** (version récente recommandée, par exemple ≥ 18)
+- **npm** (ou un autre gestionnaire comme pnpm / yarn si tu préfères)
+
+### Installation
+
+Dans le dossier du projet (`DevArt/DevArt`) :
+
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Lancer le serveur de développement
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run dev
 ```
+
+Puis ouvrir l’URL indiquée dans le terminal (généralement `http://localhost:5173`) dans ton navigateur.
+
+### Build pour la production
+
+```bash
+npm run build
+```
+
+### Prévisualisation du build
+
+```bash
+npm run preview
+```
+
+### Lint (si configuré)
+
+```bash
+npm run lint
+```
+
+---
+
+## Structure simplifiée du code
+
+- `src/App.tsx` : composant principal qui prépare les éléments d’onglets (HTML, CSS, JavaScript) et les passe au composant `Tabs`.
+- `src/tabs.tsx` : composant d’onglets réutilisable (`Tabs`) qui gère :
+  - l’onglet actuellement sélectionné via un `useState`,
+  - l’affichage des boutons,
+  - l’affichage conditionnel du contenu associé.
+- `src/App.css` : styles de base de l’application.
+- `src/main.tsx` : point d’entrée React/Vite qui monte `App` dans le DOM.
+
+---
+
+## Pourquoi ce projet ?
+
+Ce projet me permet de :
+
+- garder un **exemple minimaliste** de mise en place d’un projet React + TypeScript + Vite,
+- jouer avec un composant d’onglets simple pour tester des idées d’UI,
+- avoir une petite base sur laquelle je peux rajouter d’autres onglets, d’autres contenus ou des styles plus avancés.
+
+Tu peux t’en servir comme base pour :
+
+- expérimenter d’autres composants (modales, formulaires, etc.),
+- enrichir le contenu des onglets,
+- tester différentes approches de styling (CSS pur, CSS Modules, tailwind, etc.).
+

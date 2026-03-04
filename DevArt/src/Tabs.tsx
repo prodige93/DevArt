@@ -20,7 +20,7 @@ export default function Tabs({ items }: { items: ItemsTypes }) {
       </div>
       <div>
         {items.map(({ id, content }) => (
-          <div hidden={id !== value} key={id}>
+          <div hidden={id !== value} key={id} style={{ whiteSpace: "pre-line" }}>
             {content}
           </div>
         ))}

@@ -1,5 +1,6 @@
-import type { ItemsTypes } from "./App";
 import { useState, useEffect } from "react";
+import type { ItemsTypes } from "../App";
+
 
 export default function Tabs({ items }: { items: ItemsTypes }) {
   const [value, setValue] = useState(items[0]?.id || "");

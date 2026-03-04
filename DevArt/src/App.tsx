@@ -1,7 +1,12 @@
 import "./App.css";
+import { useState } from "react";
 import Tabs from "./Tabs";
+import Navbar from "./Navbar";
 
+//typage de mes donnée items par ItemsTypes
 export type ItemsTypes = {id: string, label: string, content: string}[];
+
+//création donnée items de type ItemsType
 export const items: ItemsTypes = [
   {
     id: "html",
@@ -127,6 +132,19 @@ export const items: ItemsTypes = [
   }
 ];
 
+
 export default function App() {
-  return <Tabs items={items}/>
-};
+  const [searchText, setSearchText] = useState("");
+
+  // 🔎 Filtrage centralisé ici (dans le cerveau)
+  const filteredItems = items.filter((item) =>
+    item.label.toLowerCase().includes(searchText.toLowerCase())
+  );
+
+  return (
+    <>
+      <Navbar searchText={searchText} setSearchText={setSearchText} />
+      <Tabs items={filteredItems} />
+    </>
+  );
+}

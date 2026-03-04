@@ -9,19 +9,20 @@ export default function Navbar() {
   );
 
   return (
-    <div style={{ padding: "10px", borderBottom: "1px solid lightgray" }}>
+    <div style={{ padding: "10px", marginBottom: "5px", borderBottom: "1px solid lightgray" }}>
       <input
         type="text"
         placeholder="Recherche un onglet..."
         value={searchText}
         onChange={(e) => setSearchText(e.target.value)}
-        style={{ padding: "5px 10px", marginBottom: "10px", width: "200px" }}
+        style={{ padding: "5px 10px", marginBottom: "20px", width: "200px" }}
       />
 
       <div style={{ display: "flex", gap: "10px" }}>
         {filteredTabs.length > 0 ? (
           filteredTabs.map((tab) => (
             <div
+              hidden={tab.id !== tab.id}
               key={tab.id}
               style={{
                 padding: "6px 12px",

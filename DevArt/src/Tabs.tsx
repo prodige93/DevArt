@@ -1,15 +1,45 @@
 import type { ItemsTypes } from "./App";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Tabs({ items }: { items: ItemsTypes }) {
-  const [value, SetValue] = useState("css");
+  const [value, setValue] = useState(items[0]?.id || "");
+  const [searchText, setSearchText] = useState("");
+
+  const filteredItems = items.filter((item) =>
+    item.label.toLowerCase().includes(searchText.toLowerCase())
+  );
+
+  // Si l’onglet sélectionné disparaît après recherche
+  useEffect(() => {
+    if (!filteredItems.find((item) => item.id === value)) {
+      setValue(filteredItems[0]?.id || "");
+    }
+  }, [searchText, items]);
+
   return (
     <div>
+      {/* 🔍 Barre de recherche AU-DESSUS */}
+      <div style={{ marginBottom: "15px" }}>
+        <input
+          type="text"
+          placeholder="Recherche..."
+          value={searchText}
+          onChange={(e) => setSearchText(e.target.value)}
+          style={{
+            padding: "6px 10px",
+            width: "250px",
+            borderRadius: "6px",
+            border: "1px solid lightgray",
+          }}
+        />
+      </div>
+
+      {/* 🔘 Boutons */}
       <div className="button-container">
-        {items.map(({ id, label }) => (
+        {filteredItems.map(({ id, label }) => (
           <button
-            onClick={() => SetValue(id)}
             key={id}
+            onClick={() => setValue(id)}
             className={["button", id === value && "button-selected"]
               .filter(Boolean)
               .join(" ")}
@@ -18,9 +48,15 @@ export default function Tabs({ items }: { items: ItemsTypes }) {
           </button>
         ))}
       </div>
-      <div>
-        {items.map(({ id, content }) => (
-          <div hidden={id !== value} key={id} style={{ whiteSpace: "pre-line" }}>
+
+      {/* 📄 Contenu */}
+      <div style={{ marginTop: "20px" }}>
+        {filteredItems.map(({ id, content }) => (
+          <div
+            hidden={id !== value}
+            key={id}
+            style={{ whiteSpace: "pre-line" }}
+          >
             {content}
           </div>
         ))}

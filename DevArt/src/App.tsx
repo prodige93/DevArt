@@ -1,5 +1,4 @@
 import "./App.css";
-import { useState } from "react";
 import Tabs from "./Tabs";
 
 //typage de mes donnée items par ItemsTypes
@@ -133,16 +132,9 @@ export const items: ItemsTypes = [
 
 
 export default function App() {
-  const [searchText] = useState("");
-  
-  // 🔎 Filtrage centralisé ici (dans le cerveau)
-  const filteredItems = items.filter((item) =>
-    item.label.toLowerCase().includes(searchText.toLowerCase())
-  );
-
   return (
     <>
-      <Tabs items={filteredItems} />
+      <Tabs items={items} />
     </>
   );
 }

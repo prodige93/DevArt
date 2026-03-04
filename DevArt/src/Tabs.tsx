@@ -1,6 +1,7 @@
 import type { ItemsTypes } from "./App";
 import { useState, useEffect } from "react";
 
+
 export default function Tabs({ items }: { items: ItemsTypes }) {
   const [value, setValue] = useState(items[0]?.id || "");
   const [searchText, setSearchText] = useState("");
@@ -32,6 +33,7 @@ export default function Tabs({ items }: { items: ItemsTypes }) {
             border: "1px solid lightgray",
           }}
         />
+
       </div>
 
       {/* 🔘 Boutons */}

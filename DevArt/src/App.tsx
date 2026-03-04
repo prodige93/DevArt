@@ -1,6 +1,6 @@
 import "./App.css";
-import Tabs from "./Tabs";
-import ThemeSwitcher from "./themeSwitcher";
+import ThemeSwitcher from "./components/SwitcherBackgroundColor";
+import Tabs from "./components/Tabs";
 
 //typage de mes donnée items par ItemsTypes
 export type ItemsTypes = {id: string, label: string, content: string}[];
@@ -134,7 +134,8 @@ export const items: ItemsTypes = [
 export default function App() {
   return (
     <>
-      <ThemeSwitcher Props = {ThemeSwitcher} />
+      {/* ⚡ Passer les props au ThemeSwitcher */}
+      <ThemeSwitcher />
       <Tabs items={items} />
     </>
   );

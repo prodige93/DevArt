@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
 import type { ItemsTypes } from "../App";
 
-
 export default function Tabs({ items }: { items: ItemsTypes }) {
-  const [value, setValue] = useState(items[0]?.id || "");
+  const [value, setValue] = useState("css");
   const [searchText, setSearchText] = useState("");
 
   const filteredItems = items.filter((item) =>

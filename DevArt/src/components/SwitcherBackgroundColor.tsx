@@ -3,7 +3,7 @@ import { Button } from "@radix-ui/themes";
 
 export default function ThemeSwitcher() {
   //déclaration local de theme et setTheme
-  const [theme, setTheme] = useState<"white" | "cyan">("white");
+  const [theme, setTheme] = useState<"white" | "cyan">("cyan");
 
   // ⚡ Changer le background du body uniquement quand le thème change
   useEffect(() => {

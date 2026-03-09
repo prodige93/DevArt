@@ -34,7 +34,7 @@ export default function Tabs({ items }: { items: ItemsTypes }) {
         />
       </div>
 
-      {/* 🔘 Boutons */}
+      {/* 🔘 Boutons */} 
       <div className="button-container">
         {filteredItems.map(({ id, label }) => (
           <button

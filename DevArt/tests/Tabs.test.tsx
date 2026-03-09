@@ -16,4 +16,3 @@ test('affiche le bon onglet au clic', async () => {
   // @ts-expect-error: matcher ajouté par jest-dom au runtime
   expect(screen.getByText('CSS')).toBeInTheDocument();
 });
-

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import type { ItemsTypes } from "../App";
+import type { ItemsTypes } from "../../../App";
+import Tab from "./Tabs.css";
 
 export default function Tabs({ items }: { items: ItemsTypes }) {
   const [value, setValue] = useState("css");
@@ -19,7 +20,7 @@ export default function Tabs({ items }: { items: ItemsTypes }) {
   return (
     <div>
       {/* 🔍 Barre de recherche AU-DESSUS */}
-      <div style={{ marginBottom: "15px" }}>
+      <div className="header-input" style={{ marginBottom: "15px" }}>
         <input
           type="text"
           placeholder="Recherche..."
@@ -32,9 +33,22 @@ export default function Tabs({ items }: { items: ItemsTypes }) {
             border: "1px solid lightgray",
           }}
         />
+
+        <input 
+          className="header-input-right"
+          id="prompt" 
+          placeholder="Ecris ton prompt..."
+          style={{
+            marginLeft: "right",
+            padding: "6px 10px",
+            width: "250px",
+            borderRadius: "6px",
+            border: "1px solid lightgray",
+          }} 
+        />
       </div>
 
-      {/* 🔘 Boutons */} 
+      {/* 🔘 Boutons */}
       <div className="button-container">
         {filteredItems.map(({ id, label }) => (
           <button

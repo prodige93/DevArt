@@ -1,0 +1,15 @@
+.header-input {
+    padding: 6px 10px;
+    width: 250px;
+    border-radius: 6px;
+    border: 1px solid lightgray;
+};
+
+.header-input-right {
+    flex: content;
+    flex-direction: column;
+    padding: 6px 10px;
+    width: 250;
+    border-radius: 6px;
+    border: 1px solid lightgray;
+}

@@ -2,7 +2,7 @@ import { expect, test } from '@jest/globals';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import Tabs from '../src/components/Tabs';
+import Tabs from '../src/components/Header/Tabs/Tabs';
 import { items } from '../src/App';
 
 test('affiche le bon onglet au clic', async () => {

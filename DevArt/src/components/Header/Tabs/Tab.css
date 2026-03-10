@@ -1,15 +1,22 @@
 .header-input {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin: 6px 0px 8px 0px;
+}
+
+.header-input-left {
     padding: 6px 10px;
     width: 250px;
     border-radius: 6px;
     border: 1px solid lightgray;
-};
+}
 
 .header-input-right {
-    flex: content;
-    flex-direction: column;
+    margin-left: auto;
     padding: 6px 10px;
-    width: 250;
+    width: 250px;
     border-radius: 6px;
     border: 1px solid lightgray;
 }

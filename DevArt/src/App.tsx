@@ -1,6 +1,6 @@
 import "./App.css";
-import ThemeSwitcher from "./components/SwitcherBackgroundColor";
-import Tabs from "./components/Tabs";
+import ThemeSwitcher from "./components/switchBackground/SwitcherBackgroundColor";
+import Tabs from "./components/Header/Tabs/Tabs";
 
 //typage de mes donnée items par ItemsTypes
 export type ItemsTypes = {id: string, label: string, content: string}[];

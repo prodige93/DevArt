@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "@radix-ui/themes";
+import "./SwitcherBgColor.css";
 
 export default function ThemeSwitcher() {
   //déclaration local de theme et setTheme
@@ -14,13 +15,8 @@ export default function ThemeSwitcher() {
 
   return (
     <Button
+      className="button-theme"
       onClick={() => setTheme(theme === "white" ? "cyan" : "white")}
-      style={{
-        marginBottom: "10px",
-        borderRadius: "5px",
-        color: "white",
-        backgroundColor: "cyan",
-      }}
     >
       Changer de couleur
     </Button>

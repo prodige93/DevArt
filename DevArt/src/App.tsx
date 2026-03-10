@@ -1,5 +1,5 @@
 import "./App.css";
-import ThemeSwitcher from "./components/switchBackground/SwitcherBackgroundColor";
+import ThemeSwitcher from "./components/Header/switchBackground/SwitcherBackgroundColor";
 import Tabs from "./components/Header/Tabs/Tabs";
 
 //typage de mes donnée items par ItemsTypes

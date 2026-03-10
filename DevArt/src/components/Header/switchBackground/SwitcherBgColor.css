@@ -1,0 +1,6 @@
+.button-theme {
+    margin-bottom: 7px !important;
+    border-radius: 5px;
+    color: white;
+    background-color: var(--accent-9) !important;
+}

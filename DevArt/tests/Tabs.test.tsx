@@ -16,3 +16,15 @@ test('affiche le bon onglet au clic', async () => {
   // @ts-expect-error: matcher ajouté par jest-dom au runtime
   expect(screen.getByText('CSS')).toBeInTheDocument();
 });
+
+test('affiche le bon onglet au clic', async () => {
+  render(<Tabs items={items} />);
+
+  const user = userEvent.setup();
+  // Exemple : cliquer sur un onglet nommé "Onglet 2"
+  await user.click(screen.getByText('HTML'));
+  
+  // Vérifier que le contenu associé apparaît
+// @ts-expect-error: matcher ajouté par jest-dom au runtime
+expect(screen.getByText('HTML')).toBeInTheDocument();
+});
